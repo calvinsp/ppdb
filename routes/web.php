@@ -25,11 +25,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Auth Admin   
-Route::get('/admin/login', [LoginAdminController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [LoginAdminController::class, 'login'])->name('admin.login.attemp');
-Route::post('/admin/logout', [LoginAdminController::class, 'logout'])->name('admin.logout');
-
+//Auth Admin   Auth\AdminAuthController@getLogin')->name('adminLogin');
+Route::get('/admin/login', 'Auth\LoginAdminController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\LoginAdminController@login')->name('admin.login.attemp');
+Route::POST('/admin/logout', 'Auth\LoginAdminController@logout')->name('admin.logout');
+Route::get('/hash','HashController@index');
 //Admin
 Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], function(){
     Route::get('/', function(){
