@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/beranda', function () {
     return view('admin.dashboard');
 })->name('dashboard');
+Route::get('/table', function () {
+    return view('admin.tabel');
+})->name('table');
 
 Auth::routes();
 
@@ -35,4 +38,5 @@ Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], functi
     Route::get('/', function(){
         return view('admin.dashboard');
     })->name('dashboard');
+    
 });
