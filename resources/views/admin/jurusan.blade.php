@@ -30,20 +30,23 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @php $no=1; @endphp
-						            @foreach ($jrs as $val )
+
                                     <tbody>
-                                        <tr>
-                                            <td>{{$no++}}</td>
-                                            <td>{{$val->nama_jurusan}}</td>
-                                            <td>{{$val->singkatan}}</td>
+                                        <?php  $no=1;
+						            foreach ($jrs as $val){
+                                        echo"<tr>
+                                            <td>".$no."</td>
+                                            <td>".$val->nama_jurusan."</td>
+                                            <td>".$val->singkatan."</td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target="#editModal" style="color: grey;"><i class="fas fa-pencil-alt"></i></a> |
-                                                <a href="#" data-toggle="modal" data-target="#deleteModal" style="color: red;" onclick="myFunction()" id="demo"><i class="fas fa-trash"></i></a>
+                                                <a href='#' data-toggle='modal' data-target='#editModal' style='color: grey;' onClick=\"SetInput('".$val->id."','".$val->nama_jurusan."','".$val->singkatan."','".$val->deskripsi."')\"><i class='fas fa-pencil-alt'></i></a> |
+                                                <a href='#'' data-toggle='modal' data-target='#deleteModal' style='color: red;' onclick='myFunction()' id='demo'><i class='fas fa-trash'></i></a>
                                             </td>
-                                            </tr>
+                                            </tr>";
+
+                                }
+                                    ?>
                                     </tbody>
-                                    @endforeach
                                 </table>
                             </div>
                         </div>
@@ -63,9 +66,10 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Apakah anda yakin untuk hapus jurusan</div>
+                <div class="modal-body">Apakah anda yakin untuk hapus jurusan {{$val->nama_jurusan}}</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
                     <form action="{{ route('admin.destroy',$val->id) }}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-primary">
@@ -90,22 +94,21 @@
             <form class="modal-body" action="{{ route('admin.edit',$val->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <input type="text" hidden class="form-control" id="nama" name="nama_jurusan" placeholder="name jurusan"
-                value="{{$val->id}}">
+                <input type="text" hidden class="form-control" id="id" name="id_jurusan" >
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Nama Jurusan</label>
-                    <input type="text" class="form-control" id="nama" name="nama_jurusan" placeholder="name jurusan"
-                    value="{{$val->nama_jurusan}}">
+                    <input type="text" class="form-control" id="nama_jurusan" name="nama_jurusan" placeholder="name jurusan"
+                    >
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Singkatan</label>
                     <input type="text" class="form-control" id="singkatan" name="singkatan" placeholder="singkatan jurusan"
-                    value="{{$val->singkatan}}">
+                    >
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
                     <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"
-                    >{{$val->deskripsi}}</textarea>
+                    ></textarea>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -118,7 +121,14 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+    function SetInput(id, nama_jurusan,singkatan,deskripsi) {
+        document.getElementById('id').value = id;
+        document.getElementById('nama_jurusan').value = nama_jurusan;
+        document.getElementById('singkatan').value = singkatan;
+        document.getElementById('deskripsi').value = deskripsi;
+    }
+</script>
 
             <!-- End of Main Content -->
 @endsection
