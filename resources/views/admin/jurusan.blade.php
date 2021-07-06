@@ -35,7 +35,7 @@
                                         <?php  $no=1;
 						            foreach ($jrs as $val){
                                         echo"<tr>
-                                            <td>".$no."</td>
+                                            <td>".$no++."</td>
                                             <td>".$val->nama_jurusan."</td>
                                             <td>".$val->singkatan."</td>
                                             <td>
@@ -44,7 +44,7 @@
                                             </td>
                                             </tr>";
 
-                                }
+                                    }
                                     ?>
                                     </tbody>
                                 </table>
@@ -66,11 +66,12 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Apakah anda yakin untuk hapus jurusan {{$val->nama_jurusan}}</div>
+                <div class="modal-body">Apakah anda yakin untuk hapus jurusan</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-
-                    <form action="{{ route('admin.destroy',$val->id) }}" method="post">
+                    @foreach ($jrs as $val)
+                    <form action="{{route('admin.destroy', $val->id)}}" method="post">
+                        @endforeach
                         @csrf
                         <button type="submit" class="btn btn-primary">
                             Delete
@@ -91,7 +92,9 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form class="modal-body" action="{{ route('admin.edit',$val->id) }}" method="POST">
+            @foreach ($jrs as $val)
+            <form class="modal-body" action="{{route('admin.edit', $val->id)}}" method="POST">
+                @endforeach
                 @csrf
                 @method('PATCH')
                 <input type="text" hidden class="form-control" id="id" name="id_jurusan" >
@@ -115,8 +118,6 @@
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
-
-
             </div>
         </div>
     </div>

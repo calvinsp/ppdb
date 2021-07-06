@@ -66,7 +66,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#"
+                <a class="nav-link" href="{{route('admin.pendaftar')}}"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>PPDB</span>

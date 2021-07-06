@@ -17,12 +17,17 @@ class BuatTabelPendaftar extends Migration
             $table->id();
 
             $table->foreignId('id_user')->reference('id')->on('users');
+            $table->foreignId('id_jurusan')->reference('id')->on('jurusan');
             $table->integer('no_pendaftar');
+            $table->string('status_seleksi');
             $table->string('nama', 100);
             $table->string('tempat_lahir', 50);
             $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->string('agama', 15);
+            $table->string('alamat', 200);
+            $table->string('sekolah', 75)->nullable();
+            $table->integer('tahun_lulus')->nullable();
             $table->timestamps();
         });
     }

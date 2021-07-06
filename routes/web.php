@@ -37,14 +37,14 @@ Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], functi
     })->name('dashboard');
 
     Route::get('/table', function () {
-        return view('admin.tabel');
+        return view('admin.tabel', ['title' => 'Table']);
     })->name('table');
 
     Route::get('/jurusan', 'JurusanController@data')->name('jurusan');
     Route::get('/form-jurusan', 'JurusanController@form')->name('form-jurusan');
     Route::post('/tambah', 'JurusanController@insert')->name('tambah');
     Route::post('/destroy/{id}', 'JurusanController@destroy')->name('destroy');
-    // Route::post('/edit/{id}', 'JurusanController@update')->name('edit');
     Route::patch('/edit/{id}', 'JurusanController@update')->name('edit');
+    Route::get('/pendaftar', 'PendaftarController@index')->name('pendaftar');
 
 });
