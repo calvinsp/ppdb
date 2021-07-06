@@ -22,7 +22,7 @@ Route::get('/cek', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth Admin   Auth\AdminAuthController@getLogin')->name('adminLogin');
 Route::get('/admin/login', 'Auth\LoginAdminController@showLoginForm')->name('admin.login');
@@ -50,7 +50,6 @@ Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], functi
 });
 
 // User
-
 Route::group(['middleware' => 'auth', 'as' => 'auth.'], function () {
     Route::get('/pendaftaran', 'PendaftaranController@index')->name('pendaftaran');
     Route::post('/insert', 'PendaftaranController@insert')->name('insert');

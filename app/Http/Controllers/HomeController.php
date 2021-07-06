@@ -26,7 +26,7 @@ class HomeController extends Controller
         return view('front.pendaftaran');
     }
 
-    public function home()
+    public function view()
     {
         return view('front.main');
     }
