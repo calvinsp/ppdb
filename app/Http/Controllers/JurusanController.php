@@ -11,7 +11,7 @@ class JurusanController extends Controller
     public function index(){
 
     }
-     
+
     public function data(){
         $jrs = Jurusan::all();
         $data['title'] = 'PROJECT UAS';
@@ -33,36 +33,36 @@ class JurusanController extends Controller
 
         ]);
 
-        DB::table('jurusan')->insert([
+        $result = DB::table('jurusan')->insert([
             [
-                'nama_jurusan' => $request->nama,
+                'nama_jurusan' => $request->nama_jurusan,
                 'singkatan' => $request->singkatan,
                 'deskripsi' => $request->deskripsi,
 
-            ], 
+            ],
         ]);
-        dd($request->all());
-        // return redirect('/admin.jurusan')->with('sukses', 'Data berhasil diinput');
+
+        return redirect('/admin/jurusan')->with('sukses', 'Data berhasil diinput');
     }
 
-    public function edit($id){
 
-        $mhs = Mahasiswa::find($id);
-        return view('dashboard/form-edit', compact('mhs'));
-    }
 
     public function update(Request $request, $id){
 
-        $mhs = Mahasiswa::find($id);
+        $mhs = Jurusan::find($id);
         // dd($request->all());
         $mhs->update($request->all());
-        return redirect('/data-list')->with('suksesup', 'Data Berhasil Diupdate');
+        return redirect('/admin/jurusan')->with('sukses', 'Data berhasil diupdate');
     }
 
     public function destroy($id){
-        $mhs = Mahasiswa::find($id);
-        $mhs->delete();
-        return back()->with('delete', 'Data Berhasil Dihapus');
+        $mhs = DB::table('jurusan')->where('id',$id)->delete();
+        if ($mhs){
+            return redirect('/admin/jurusan')->with('sukses', 'Data berhasil dihapus');
+        }else {
+            return redirect('/admin/jurusan')->with('error', 'Data berhasil dihapus');
+        }
+
 
     }
 }

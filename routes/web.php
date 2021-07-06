@@ -27,6 +27,10 @@ Route::post('/admin/login', 'Auth\LoginAdminController@login')->name('admin.logi
 Route::POST('/admin/logout', 'Auth\LoginAdminController@logout')->name('admin.logout');
 Route::get('/hash','HashController@index');
 //Admin
+
+
+
+
 Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], function(){
     Route::get('/', function(){
         return view('admin.dashboard', ['title' => 'Dashboard']);
@@ -39,6 +43,8 @@ Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], functi
     Route::get('/jurusan', 'JurusanController@data')->name('jurusan');
     Route::get('/form-jurusan', 'JurusanController@form')->name('form-jurusan');
     Route::post('/tambah', 'JurusanController@insert')->name('tambah');
+    Route::post('/destroy/{id}', 'JurusanController@destroy')->name('destroy');
+    // Route::post('/edit/{id}', 'JurusanController@update')->name('edit');
+    Route::patch('/edit/{id}', 'JurusanController@update')->name('edit');
 
-    
 });

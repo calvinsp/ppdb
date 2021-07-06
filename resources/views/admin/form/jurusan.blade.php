@@ -5,7 +5,7 @@
     @csrf
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Nama Jurusan</label>
-        <input type="text" class="form-control" id="nama" name="nama" placeholder="name jurusan">
+        <input type="text" class="form-control" id="nama" name="nama_jurusan" placeholder="nama jurusan">
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Singkatan</label>
