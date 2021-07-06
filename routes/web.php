@@ -17,13 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/beranda', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
-Route::get('/table', function () {
-    return view('admin.tabel');
-})->name('table');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -36,7 +29,16 @@ Route::get('/hash','HashController@index');
 //Admin
 Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], function(){
     Route::get('/', function(){
-        return view('admin.dashboard');
+        return view('admin.dashboard', ['title' => 'Dashboard']);
     })->name('dashboard');
+
+    Route::get('/table', function () {
+        return view('admin.tabel');
+    })->name('table');
+
+    Route::get('/jurusan', 'JurusanController@data')->name('jurusan');
+    Route::get('/form-jurusan', 'JurusanController@form')->name('form-jurusan');
+    Route::post('/tambah', 'JurusanController@insert')->name('tambah');
+
     
 });
