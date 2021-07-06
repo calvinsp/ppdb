@@ -11,7 +11,8 @@ class Jurusan extends Model
     protected $table = "jurusan";
     protected $fillable = ['id','nama_jurusan', 'singkatan', 'deskripsi'];
 
-    // public function pendaftar(){
-    //     return $this->hasMany('App\Pendaftar', 'id_jurusan', 'id');
-    // }
+    public function pendaftaran()
+    {
+        return $this->hasMany('App\Pendaftaran', 'id_jurusan', 'id');
+    }
 }

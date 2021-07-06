@@ -14,23 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.main', ['title' => 'PPDB Website']);
+});
+Route::get('/cek', function () {
+    return view('front.pendaftaran');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@home')->name('home');
 
 //Auth Admin   Auth\AdminAuthController@getLogin')->name('adminLogin');
 Route::get('/admin/login', 'Auth\LoginAdminController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Auth\LoginAdminController@login')->name('admin.login.attemp');
 Route::POST('/admin/logout', 'Auth\LoginAdminController@logout')->name('admin.logout');
 Route::get('/hash','HashController@index');
+
 //Admin
-
-
-
-
 Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], function(){
     Route::get('/', function(){
         return view('admin.dashboard', ['title' => 'Dashboard']);
@@ -47,4 +47,14 @@ Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], functi
     Route::patch('/edit/{id}', 'JurusanController@update')->name('edit');
     Route::get('/pendaftar', 'PendaftarController@index')->name('pendaftar');
 
+});
+
+// User
+
+Route::group(['middleware' => 'auth', 'as' => 'auth.'], function () {
+    Route::get('/pendaftaran', 'PendaftaranController@index')->name('pendaftaran');
+    Route::post('/insert', 'PendaftaranController@insert')->name('insert');
+    Route::get('/user', function () {
+        return view('front.dashboard');
+    })->name('user');
 });

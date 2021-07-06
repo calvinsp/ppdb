@@ -56,7 +56,14 @@
                                             <td>{{$val->jenis_kelamin}}</td>
                                             <td>{{$val->sekolah}}</td>
                                             <td>{{$val->id_jurusan}}</td>
-                                            <td>{{$val->status_seleksi}}</td>
+                                            <td>
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>{{$val->status_seleksi}}</option>
+                                                    <option value="Pengecekkan">Pengecekkan</option>
+                                                    <option value="Diterima">Diterima</option>
+                                                    <option value="Ditolak">Ditolak</option>
+                                                  </select>
+                                            </td>
                                             <td><a href="#" style="color: grey;"><i class="fas fa-pencil-alt"></i></a> | <a href="#" style="color: red;" onclick="myFunction()" id="demo"><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     </tbody>
