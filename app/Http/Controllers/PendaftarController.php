@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pendaftar;
+use App\Pendaftaran;
 use Illuminate\Support\Facades\DB;
 
 class PendaftarController extends Controller
 {
     public function index()
     {
-        $dft = Pendaftar::all();
+        $dft = Pendaftaran::all();
         $data['title'] = 'PPDB';
 
         return view('admin.ppdb', ["dft" => $dft], $data);

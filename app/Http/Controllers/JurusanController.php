@@ -32,7 +32,12 @@ class JurusanController extends Controller
             'deskripsi' => 'required',
 
         ]);
-
+        echo $validation['nama_jurusan'];
+        echo "<br>";
+        echo $validation['singkatan'];
+        echo "<br>";
+        echo $validation['deskripsi'];
+        echo "<br>";
         $result = DB::table('jurusan')->insert([
             [
                 'nama_jurusan' => $request->nama_jurusan,
@@ -48,7 +53,18 @@ class JurusanController extends Controller
 
 
     public function update(Request $request, $id){
+        $validation = $request->validate([
+            'nama_jurusan' => 'required|min:3',
+            'singkatan' => 'required',
+            'deskripsi' => 'required',
 
+        ]);
+        echo $validation['nama_jurusan'];
+        echo "<br>";
+        echo $validation['singkatan'];
+        echo "<br>";
+        echo $validation['deskripsi'];
+        echo "<br>";
         $mhs = Jurusan::find($id);
         // dd($request->all());
         $mhs->update($request->all());

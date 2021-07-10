@@ -20,6 +20,7 @@
                         <span>Profile User</span>
                         <div class="col">
                             <ul class="data-diri" style="list-style-type:none;">
+                                <li>Nama : <b>{{ Auth::user()->status_seleksi }}</b></li>
                                 <li>Nama : <b>{{ Auth::user()->name }}</b></li>
                                 <li>Email : <b>{{ Auth::user()->email }}</b></li>
                                 <li>Tanggal Join : <b>{{ Auth::user()->created_at }}</b></li>

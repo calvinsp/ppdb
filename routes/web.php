@@ -57,3 +57,5 @@ Route::group(['middleware' => 'auth', 'as' => 'auth.'], function () {
         return view('front.dashboard');
     })->name('user');
 });
+
+Route::get('/api-get', 'apiController@index')->name('api');
