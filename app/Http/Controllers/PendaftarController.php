@@ -10,62 +10,43 @@ class PendaftarController extends Controller
 {
     public function index()
     {
-        $dft = Pendaftaran::all();
+        $dft = DB::table('pendaftar')
+        ->join('jurusan', 'jurusan.id', '=', 'pendaftar.id_jurusan')
+        ->get();
         $data['title'] = 'PPDB';
 
         return view('admin.ppdb', ["dft" => $dft], $data);
     }
 
 
-
-    public function form()
-    {
-        $data['title'] = "Form Tambah Jurusan";
-        return view('admin.form.jurusan', $data);
-    }
-
-    public function insert(Request $request)
-    {
-
+    public function update(Request $request, $id){
         $validation = $request->validate([
-            'nama_jurusan' => 'required|min:3',
-            'singkatan' => 'required',
-            'deskripsi' => 'required',
+            'status_seleksi' => 'required',
 
         ]);
-
-        DB::table('jurusan')->insert([
-            [
-                'nama_jurusan' => $request->nama_jurusan,
-                'singkatan' => $request->singkatan,
-                'deskripsi' => $request->deskripsi,
-
-            ],
-        ]);
-        // dd($request->all());
-        return redirect('/admin/jurusan')->with('sukses', 'Data berhasil diinput');
-    }
-
-    public function edit($id)
-    {
-
-        $mhs = Jurusan::find($id);
-        return view('dashboard/form-edit', compact('mhs'));
-    }
-
-    public function update(Request $request, $id)
-    {
-
-        $mhs = Jurusan::find($id);
-        // dd($request->all());
+        $mhs = Pendaftaran::find($id);
         $mhs->update($request->all());
-        return redirect('/data-list')->with('suksesup', 'Data Berhasil Diupdate');
+
+        $status = $request->status_seleksi;
+        $status1 = $request->status_seleksi1;
+        $namajrs = $request->nama_jurusan;
+        $ditrima = DB::table('jurusan')->select('diterima')->where('nama_jurusan',$namajrs)->first();
+        $array = $ditrima->diterima;
+        //  echo $array+1;
+        if($status =='Diterima'){
+            $hasil = $array + 1;
+            DB::table('jurusan')->where('nama_jurusan',$namajrs)->update([
+                'diterima'=>$hasil
+            ]);
+            return redirect('/admin/pendaftar')->with('sukses', 'Data berhasil diupdate');
+        }elseif($status1 =='Diterima' && $status !='Diterima'){
+            $hasil = $array - 1;
+            DB::table('jurusan')->where('nama_jurusan',$namajrs)->update([
+                'diterima'=>$hasil
+            ]);
+        return redirect('/admin/pendaftar')->with('sukses', 'Data berhasil diupdate');
+        }
     }
 
-    public function destroy($id)
-    {
-        $mhs = Jurusan::find($id);
-        $mhs->delete();
-        return back()->with('delete', 'Data Berhasil Dihapus');
-    }
+
 }

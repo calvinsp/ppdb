@@ -9,7 +9,7 @@ class Jurusan extends Model
 {
 
     protected $table = "jurusan";
-    protected $fillable = ['id','nama_jurusan', 'singkatan', 'deskripsi'];
+    protected $fillable = ['id','nama_jurusan', 'singkatan','kuota','diterima', 'deskripsi'];
 
     public function pendaftaran()
     {

@@ -27,6 +27,8 @@
                                             <th>No</th>
                                             <th>Nama Jurusan</th>
                                             <th>Singkatan</th>
+                                            <th>Kuota</th>
+                                            <th>Diterima</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -38,8 +40,10 @@
                                             <td>".$no++."</td>
                                             <td>".$val->nama_jurusan."</td>
                                             <td>".$val->singkatan."</td>
+                                            <td>".$val->kuota."</td>
+                                            <td>".$val->diterima."</td>
                                             <td>
-                                                <a href='#' data-toggle='modal' data-target='#editModal' style='color: grey;' onClick=\"SetInput('".$val->id."','".$val->nama_jurusan."','".$val->singkatan."','".$val->deskripsi."')\"><i class='fas fa-pencil-alt'></i></a> |
+                                                <a href='#' data-toggle='modal' data-target='#editModal' style='color: grey;' onClick=\"SetInput('".$val->id."','".$val->nama_jurusan."','".$val->singkatan."','".$val->kuota."','".$val->deskripsi."')\"><i class='fas fa-pencil-alt'></i></a> |
                                                 <a href='#'' data-toggle='modal' data-target='#deleteModal' style='color: red;' onclick='myFunction()' id='demo'><i class='fas fa-trash'></i></a>
                                             </td>
                                             </tr>";
@@ -109,6 +113,11 @@
                     >
                 </div>
                 <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Kuota</label>
+                    <input type="text" class="form-control" id="kuota" name="kuota" placeholder="singkatan jurusan"
+                    >
+                </div>
+                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
                     <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"
                     ></textarea>
@@ -123,10 +132,11 @@
     </div>
 </div>
 <script type="text/javascript">
-    function SetInput(id, nama_jurusan,singkatan,deskripsi) {
+    function SetInput(id, nama_jurusan,singkatan,kuota,deskripsi) {
         document.getElementById('id').value = id;
         document.getElementById('nama_jurusan').value = nama_jurusan;
         document.getElementById('singkatan').value = singkatan;
+        document.getElementById('kuota').value = kuota;
         document.getElementById('deskripsi').value = deskripsi;
     }
 </script>

@@ -46,6 +46,7 @@ Route::group(['middleware'=>'admin', 'prefix'=>'/admin', 'as'=>'admin.'], functi
     Route::post('/destroy/{id}', 'JurusanController@destroy')->name('destroy');
     Route::patch('/edit/{id}', 'JurusanController@update')->name('edit');
     Route::get('/pendaftar', 'PendaftarController@index')->name('pendaftar');
+    Route::patch('/pendaftar-update{id}', 'PendaftarController@update')->name('pendaftar-update');
 
 });
 
@@ -58,4 +59,4 @@ Route::group(['middleware' => 'auth', 'as' => 'auth.'], function () {
     })->name('user');
 });
 
-Route::get('/api-get', 'apiController@index')->name('api');
+

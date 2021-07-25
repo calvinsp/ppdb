@@ -29,6 +29,7 @@ class JurusanController extends Controller
         $validation = $request->validate([
             'nama_jurusan' => 'required|min:3',
             'singkatan' => 'required',
+            'kuota' => 'required',
             'deskripsi' => 'required',
 
         ]);
@@ -42,6 +43,7 @@ class JurusanController extends Controller
             [
                 'nama_jurusan' => $request->nama_jurusan,
                 'singkatan' => $request->singkatan,
+                'kuota' => $request->kuota,
                 'deskripsi' => $request->deskripsi,
 
             ],
@@ -56,6 +58,7 @@ class JurusanController extends Controller
         $validation = $request->validate([
             'nama_jurusan' => 'required|min:3',
             'singkatan' => 'required',
+            'kuota' => 'required',
             'deskripsi' => 'required',
 
         ]);

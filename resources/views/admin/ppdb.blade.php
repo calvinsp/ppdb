@@ -55,16 +55,12 @@
                                             <td>{{$val->nama}}</td>
                                             <td>{{$val->jenis_kelamin}}</td>
                                             <td>{{$val->sekolah}}</td>
-                                            <td>{{$val->id_jurusan}}</td>
+                                            <td>{{$val->nama_jurusan}}</td>
+                                            <td>{{$val->status_seleksi}}</td>
                                             <td>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>{{$val->status_seleksi}}</option>
-                                                    <option value="Pengecekkan">Pengecekkan</option>
-                                                    <option value="Diterima">Diterima</option>
-                                                    <option value="Ditolak">Ditolak</option>
-                                                  </select>
-                                            </td>
-                                            <td><a href="#" style="color: grey;"><i class="fas fa-pencil-alt"></i></a> | <a href="#" style="color: red;" onclick="myFunction()" id="demo"><i class="fas fa-trash"></i></a></td>
+                                            <?php  echo "<a href='#' data-toggle='modal' data-target='#editModal' style='color: grey;' onClick=\"SetInput('".$val->id."','".$val->nama."','".$val->nama_jurusan."','".$val->status_seleksi."')\"><i class='fas fa-pencil-alt'></i></a> |
+                                            <a href='#'' data-toggle='modal' data-target='#deleteModal' style='color: red;' onclick='myFunction()' id='demo'><i class='fas fa-trash'></i></a>
+                                            "?>
                                         </tr>
                                     </tbody>
                                     @endforeach
@@ -75,7 +71,85 @@
 
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Apakah anda yakin untuk hapus jurusan</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    @foreach ($dft as $val)
+                    <form action="{{route('admin.destroy', $val->id)}}" method="post">
+                        @endforeach
+                        @csrf
+                        <button type="submit" class="btn btn-primary">
+                            Delete
+                        </button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Jurusan</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @foreach ($dft as $val)
+            <form class="modal-body" action="{{route('admin.pendaftar-update', $val->id)}}" method="POST">
+                @endforeach
+                @csrf
+                @method('PATCH')
+                <input type="text" hidden class="form-control" id="id" name="id_pendaftar" >
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                    <input type="text" class="form-control" disabled id="nama" name="nama" placeholder="name jurusan"
+                    >
+                </div>
+                <div class="mb-3">
+                    {{-- <label for="exampleFormControlInput1" class="form-label">Jurusan</label> --}}
+                    <input type="text" class="form-control" hidden id="nama_jurusan" name="nama_jurusan" placeholder="name jurusan">
+                    <input type="text" class="form-control"  id="status_seleksi1" name="status_seleksi1" placeholder="name jurusan">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Status Seleksi</label>
+                    <select name="status_seleksi" id="status_seleksi" class="form-control">
+                        <option value="Diterima">Diterima</option>
+                        <option value="Belum Dikonfirmasi">Belum Dikonfirmasi</option>
+                        <option value="Ditolak">Ditolak</option>
+                      </select>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function SetInput(id, nama,nama_jurusan,status_seleksi) {
+        document.getElementById('id').value = id;
+        document.getElementById('nama').value = nama;
+        document.getElementById('nama_jurusan').value = nama_jurusan;
+        document.getElementById('status_seleksi1').value = status_seleksi;
+        document.getElementById('status_seleksi').value = status_seleksi;
+    }
+</script>
+
             <!-- End of Main Content -->
 @endsection
