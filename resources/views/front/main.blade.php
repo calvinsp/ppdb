@@ -54,11 +54,12 @@
                                 @else
                                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
 
-                                    @if (Route::has('register'))
+                                    {{-- @if (Route::has('register'))
                                     <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
-                                    @endif
+                                    @endif --}}
                                 @endauth
                         @endif
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">PPDB</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,7 +88,7 @@
                     <div class="col-lg-8 text-center">
                         <h2 class="text-white mt-0">We've got what you need!</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
+                        <p class="text-white-75 mb-4">MULAI melangkah maju kedepan bersama kami dan wujudkan mimpimu menjadi kenyataan di masa depan dari SEKARANG!</p>
                         <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
                     </div>
                 </div>
@@ -102,29 +103,29 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                            <h3 class="h4 mb-2">Keunggulan</h3>
+                            <p class="text-muted mb-0">Kelebihan sekolah ditempat kami selalu update teknologi!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Up to Date</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                            <h3 class="h4 mb-2">Informasi</h3>
+                            <p class="text-muted mb-0">Infromasi up to date setiap hari dan setiap saat!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                            <h3 class="h4 mb-2">Alumni</h3>
+                            <p class="text-muted mb-0">Alumni kami tersebar diberbagai daerah di indonesia!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Made with Love</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                            <div class="mb-2"><i class="bi-book fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2">Library</h3>
+                            <p class="text-muted mb-0">Perpustakaan buat tambah ilmu dan selalu update buku terbaru!</p>
                         </div>
                     </div>
                 </div>
@@ -135,56 +136,56 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/front/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/front/img/portfolio/thumbnails/1.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/front/gallery/1.jpg" title="Belajar Dikelas">
+                            <img class="img-fluid" src="assets/front/gallery/1.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Belajar Dikelas</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/front/img/portfolio/fullsize/2.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/front/img/portfolio/thumbnails/2.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/front/gallery/2.jpg" title="Belajar Bersama">
+                            <img class="img-fluid" src="assets/front/gallery/2.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Belajar Bersama</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/front/img/portfolio/fullsize/3.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/front/img/portfolio/thumbnails/3.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/front/gallery/3.jpg" title="Ujian Akhir Semester">
+                            <img class="img-fluid" src="assets/front/gallery/3.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Ujian Akhir Semester</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/front/img/portfolio/fullsize/4.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/front/img/portfolio/thumbnails/4.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/front/gallery/4.jpg" title="Pengerjaan Project">
+                            <img class="img-fluid" src="assets/front/gallery/4.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Pengerjaan Project</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/front/img/portfolio/fullsize/5.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/front/img/portfolio/thumbnails/5.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/front/gallery/5.jpg" title="Suasana Kelas">
+                            <img class="img-fluid" src="assets/front/gallery/5.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Suasana Dalam Kelas</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/front/img/portfolio/fullsize/6.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/front/img/portfolio/thumbnails/6.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/front/gallery/6.jpg" title="Belajar Dengan Ikuti Protokol Kesehatan">
+                            <img class="img-fluid" src="assets/front/gallery/6.jpg" alt="..." />
                             <div class="portfolio-box-caption p-3">
                                 <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-name">Phisical Distancing</div>
                             </div>
                         </a>
                     </div>
@@ -194,8 +195,8 @@
         <!-- Call to action-->
         <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-                <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
+                <h2 class="mb-4">Download Aplikasi PPDB for Mobile Phone</h2>
+                <a class="btn btn-light btn-xl" href="">Download Now!</a>
             </div>
         </section>
         <!-- Contact-->
@@ -203,9 +204,9 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Let's Get In Touch!</h2>
+                        <h2 class="mt-0">Contact Us For More</h2>
                         <hr class="divider" />
-                        <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get back to you as soon as possible!</p>
+                        <p class="text-muted mb-5">Sudah siap belajar bersama kami? Send us a messages and we will get back to you as soon as possible!</p>
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
@@ -261,21 +262,21 @@
                             <!-- an error submitting the form-->
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button></div>
                         </form>
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-4 text-center mb-5 mb-lg-0">
                         <i class="bi-phone fs-2 mb-3 text-muted"></i>
-                        <div>+1 (555) 123-4567</div>
+                        <div>+62 (012) 123-4567</div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div></div>
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - D3-Teknik Informatika Amikom</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
