@@ -122,7 +122,7 @@
                 <div class="mb-3">
                     {{-- <label for="exampleFormControlInput1" class="form-label">Jurusan</label> --}}
                     <input type="text" class="form-control" hidden id="nama_jurusan" name="nama_jurusan" placeholder="name jurusan">
-                    <input type="text" class="form-control"  id="status_seleksi1" name="status_seleksi1" placeholder="name jurusan">
+                    <input type="text" class="form-control" hidden id="status_seleksi1" name="status_seleksi1" placeholder="name jurusan">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Status Seleksi</label>
